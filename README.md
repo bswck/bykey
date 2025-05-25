@@ -1,7 +1,13 @@
 # bykey
 Class-based and function-based dispatch dictionaries
 
-## Class-based
+## Key features
+- Dispatch registries are validated to be complete
+- Dispatch keys are controlled
+- Dispatch keys can be inferred from implementers
+- Dispatching by types can be implemented to avoid bloated `functools.singledispatch` where C3 resolution is unnecessary
+
+## Class-based dispatching
 ```py
 import bykey
 
@@ -25,7 +31,7 @@ Base.dispatch(1)  # Foo
 Base.dispatch(2)  # Bar
 ```
 
-## Function-based
+## Function-based dispatching
 ```py
 import bykey
 
