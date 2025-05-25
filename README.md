@@ -35,7 +35,7 @@ Base.dispatch(1)  # Foo
 Base.dispatch(2)  # Bar
 ```
 
-## Function-based dispatching
+### Function-based dispatching
 
 #### From argument
 ```py
