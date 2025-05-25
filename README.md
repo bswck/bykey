@@ -3,8 +3,8 @@
 > [!Warning]
 > Work in progress.
 
-Class-based and function-based dispatch dictionaries backed by Rust.
 Generalizes the idea of `functools.singledispatch` for arbitrary constructs and fits better for the simplest cases (when no abstract classes are involved).
+Implemented in Cython.
 
 ## Key features
 Think of this library like a cleaner way of gathering strategies in dictionaries.
@@ -15,30 +15,25 @@ Think of this library like a cleaner way of gathering strategies in dictionaries
 - Dispatching by types without the bloated `functools.singledispatch` for situations when C3 resolution is unnecessary
 
 ## Examples
-### Class-based dispatching
+### General dispatching
 ```py
 import bykey
 
-@bykey.dispatch(keys=[1, 2])
-class Base:
-    pass
+disp = bykey.dispatcher(keys=[1, 2])
 
-# or with Base = bykey.dispatcher(keys=[1, 2])
-# you could use dispatcher as an attribute in a class as well
-
-@Base.register(1)
+@disp.register(1)
 class Foo:
     pass
 
-@Base.register(2)
+@disp.register(2)
 class Bar:
     pass
 
-Base.dispatch(1)  # Foo
-Base.dispatch(2)  # Bar
+disp(1)  # Foo
+disp.dispatch(2)  # Bar
 ```
 
-### Function-based dispatching
+### Callable dispatching
 
 #### From argument
 ```py
@@ -49,14 +44,15 @@ def base(arg: int) -> None:
     pass
 
 @base.register(1)
-def bar(arg: int) -> None:
-    pass
+class Bar:
+    def __init__(arg: int) -> None:
+        pass
 
 @base.register(2)
 def biz(arg: int) -> None:
     pass
 
-base(1)  # -> bar(1)
+base(1)  # -> Bar(1)
 base(2)  # -> biz(2)
 ```
 
@@ -103,9 +99,3 @@ def biz() -> None:
 base.dispatch(1)  # bar
 base.dispatch(2)  # biz
 ```
-
-### Mixed dispatching
-
-TODO
-
-
