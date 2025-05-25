@@ -1,4 +1,8 @@
 # bykey
+
+> [!Warning]
+> Work in progress.
+
 Class-based and function-based dispatch dictionaries backed by Rust.
 Generalizes the idea of `functools.singledispatch` for arbitrary constructs and fits better for the simplest cases (when no abstract classes are involved).
 
