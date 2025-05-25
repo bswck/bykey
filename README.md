@@ -11,8 +11,8 @@ Generalizes the idea of `functools.singledispatch` for arbitrary constructs and 
 - Dispatch keys are controlled
 - Dispatching by types without the bloated `functools.singledispatch` for situations when C3 resolution is unnecessary
 
-
-## Class-based dispatching
+## Examples
+### Class-based dispatching
 ```py
 import bykey
 
@@ -37,7 +37,7 @@ Base.dispatch(2)  # Bar
 
 ## Function-based dispatching
 
-### From argument
+#### From argument
 ```py
 import bykey
 
@@ -58,7 +58,7 @@ base(2)  # -> biz(2)
 ```
 
 
-### From argument type invariant
+#### From argument type invariant
 ```py
 import bykey
 from typing import Never
@@ -79,7 +79,7 @@ base("foo")  # -> bar("foo)
 base(2)  # -> biz(2)
 ```
 
-### From manual `.dispatch()`
+#### From manual `.dispatch()`
 ```py
 import bykey
 
