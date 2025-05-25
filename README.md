@@ -101,6 +101,8 @@ base.dispatch(1)  # bar
 base.dispatch(2)  # biz
 ```
 
+### Mixed dispatching
 
+TODO
 
 
