@@ -16,6 +16,7 @@ class Base:
     pass
 
 # or with Base = bykey.dispatcher(keys=[1, 2])
+# you could use dispatcher as an attribute in a class as well
 
 @Base.register(1)
 class Foo:
