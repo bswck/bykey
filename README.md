@@ -15,6 +15,8 @@ import bykey
 class Base:
     pass
 
+# or with Base = bykey.dispatcher(keys=[1, 2])
+
 @Base.register(1)
 class Foo:
     pass
@@ -34,6 +36,8 @@ import bykey
 @bykey.dispatching(keys=[1, 2])
 def base() -> None:
     pass
+
+# or with base = bykey.dispatcher(keys=[1, 2])
 
 @base.register(1)
 def bar() -> None:
