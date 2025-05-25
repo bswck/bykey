@@ -9,7 +9,6 @@ Generalizes the idea of `functools.singledispatch` for arbitrary constructs and 
 ## Key features
 - Dispatch registries are validated to be complete
 - Dispatch keys are controlled
-- Dispatch keys can be inferred from implementers
 - Dispatching by types without the bloated `functools.singledispatch` for situations when C3 resolution is unnecessary
 
 
