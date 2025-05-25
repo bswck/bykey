@@ -9,6 +9,7 @@ Generalizes the idea of `functools.singledispatch` for arbitrary constructs and 
 ## Key features
 - Dispatch registries are validated to be complete
 - Dispatch keys are controlled
+- Conflicts are reported at definition time
 - Dispatching by types without the bloated `functools.singledispatch` for situations when C3 resolution is unnecessary
 
 ## Examples
