@@ -39,7 +39,7 @@ import bykey
 def base() -> None:
     pass
 
-@bykey.register(1, base)  # registry of bar inferred from common suffix "_strategy"
+@bykey.register(1, base)  # registry base inferred from common suffix "_strategy"
 def bar_strategy() -> None:
     pass
 
