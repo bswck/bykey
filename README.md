@@ -19,7 +19,7 @@ Think of this library like a cleaner way of gathering strategies in dictionaries
 ```py
 import bykey
 
-@bykey.dispatching(keys=[1, 2])
+@bykey.dispatch(keys=[1, 2])
 class Base:
     pass
 
@@ -44,7 +44,7 @@ Base.dispatch(2)  # Bar
 ```py
 import bykey
 
-@bykey.argument_dispatching(keys=[1, 2])
+@bykey.argument_dispatch(keys=[1, 2])
 def base(arg: int) -> None:
     pass
 
@@ -66,7 +66,7 @@ base(2)  # -> biz(2)
 import bykey
 from typing import Never
 
-@bykey.argument_type_dispatching(keys=[str, int])
+@bykey.type_dispatch(keys=[str, int])
 def base(arg: Never) -> None:
     pass
 
@@ -86,7 +86,7 @@ base(2)  # -> biz(2)
 ```py
 import bykey
 
-@bykey.dispatching(keys=[1, 2])
+@bykey.dispatch(keys=[1, 2])
 def base() -> None:
     pass
 
