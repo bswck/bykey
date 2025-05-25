@@ -61,9 +61,10 @@ base(2)  # -> biz(2)
 ### From argument type invariant
 ```py
 import bykey
+from typing import Never
 
 @bykey.argument_type_dispatching(keys=[str, int])
-def base(arg: int) -> None:
+def base(arg: Never) -> None:
     pass
 
 @base.register
