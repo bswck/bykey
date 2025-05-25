@@ -11,20 +11,16 @@ Class-based and function-based dispatch dictionaries
 ```py
 import bykey
 
-@bykey.dispatching(keys=[1, 2], common_suffix="Strategy")
+@bykey.dispatching(keys=[1, 2])
 class Base:
     pass
 
-@bykey.register(1, Base)
+@Base.register(1)
 class Foo:
     pass
 
-@bykey.register(2)  # registry Base inferred from Bar's superclass Base
-class Bar(Base):
-    pass
-
-@bykey.register(3)  # registry Base inferred from Bar's common suffix Strategy
-class BarStrategy:
+@Base.register(2)
+class Bar:
     pass
 
 Base.dispatch(1)  # Foo
@@ -35,19 +31,19 @@ Base.dispatch(2)  # Bar
 ```py
 import bykey
 
-@bykey.dispatching(keys=[1, 2], common_suffix="_strategy")
+@bykey.dispatching(keys=[1, 2])
 def base() -> None:
     pass
 
-@bykey.register(1, base)  # registry base inferred from common suffix "_strategy"
-def bar_strategy() -> None:
+@base.register(1)
+def bar() -> None:
     pass
 
-@bykey.register(2, base)
+@base.register(2)
 def biz() -> None:
     pass
 
-base.dispatch(1)  # bar_strategy
+base.dispatch(1)  # bar
 base.dispatch(2)  # biz
 ```
 
