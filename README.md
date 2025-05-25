@@ -31,6 +31,49 @@ Base.dispatch(2)  # Bar
 ```
 
 ## Function-based dispatching
+
+### From argument
+```py
+import bykey
+
+@bykey.argument_dispatching(keys=[1, 2])
+def base(arg: int) -> None:
+    pass
+
+@base.register(1)
+def bar(arg: int) -> None:
+    pass
+
+@base.register(2)
+def biz(arg: int) -> None:
+    pass
+
+base(1)  # -> bar(1)
+base(2)  # -> biz(2)
+```
+
+
+### From argument type invariant
+```py
+import bykey
+
+@bykey.argument_type_dispatching(keys=[str, int])
+def base(arg: int) -> None:
+    pass
+
+@base.register
+def bar(arg: str) -> None:
+    pass
+
+@base.register
+def biz(arg: int) -> None:
+    pass
+
+base("foo")  # -> bar(1)
+base(2)  # -> biz(2)
+```
+
+### From manual `.dispatch()`
 ```py
 import bykey
 
