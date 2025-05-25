@@ -75,7 +75,7 @@ def bar(arg: str) -> None:
 def biz(arg: int) -> None:
     pass
 
-base("foo")  # -> bar(1)
+base("foo")  # -> bar("foo)
 base(2)  # -> biz(2)
 ```
 
