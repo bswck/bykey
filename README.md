@@ -1,11 +1,13 @@
 # bykey
-Class-based and function-based dispatch dictionaries
+Class-based and function-based dispatch dictionaries.
+Generalizes the idea of `functools.singledispatch` for arbitrary constructs and fits better for the simplest cases (when no abstract classes are involved).
 
 ## Key features
 - Dispatch registries are validated to be complete
 - Dispatch keys are controlled
 - Dispatch keys can be inferred from implementers
-- Dispatching by types can be implemented to avoid bloated `functools.singledispatch` where C3 resolution is unnecessary
+- Dispatching by types without the bloated `functools.singledispatch` for situations when C3 resolution is unnecessary
+
 
 ## Class-based dispatching
 ```py
