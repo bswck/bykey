@@ -7,6 +7,8 @@ Class-based and function-based dispatch dictionaries backed by Rust.
 Generalizes the idea of `functools.singledispatch` for arbitrary constructs and fits better for the simplest cases (when no abstract classes are involved).
 
 ## Key features
+Think of this library like a cleaner way of gathering strategies in dictionaries.
+
 - Dispatch registries are validated to be complete
 - Dispatch keys are controlled
 - Conflicts are reported at definition time
